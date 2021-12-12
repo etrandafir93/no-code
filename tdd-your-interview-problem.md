@@ -127,3 +127,9 @@ enum Dividers {
 As you may have noticed, I'm making use this enum of Dividers where each of them is able to check for itself if the given number is a multipier of it.
 In O.O.P. (Object Oriented Programming) terms, this is called **Polymorphism** - but maybe this is a topic for another article.
 
+
+## Challenge - solve Roman to Integer
+
+As homework, try solving the next problem in a similar - decoupled and testable - way. Code it on [interviewbit](https://www.interviewbit.com/online-java-compiler/) or some other online compiler.
+
+Task: Iterate from 1 to 100, and, for each number, print it's Roman numeral equivalent. 
