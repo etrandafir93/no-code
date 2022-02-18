@@ -269,12 +269,12 @@ public class HotelRoomController {
 
     // constructor
 
-    @PostMapping("{roomId}/bookings")
+    @PostMapping("{roomNumber}/bookings")
     public BookingDto addBooking(@PathVariable String roomNumber, @RequestBody BookingDto dto) {
         return hotelRoomRestAdapter.addBooking(roomNumber, dto);
     }
 
-    @PatchMapping("{roomId}")
+    @PatchMapping("{roomNumber}")
     public void changeRoomStatus(@PathVariable String roomNumber, @RequestParam RoomOperation operation) {
         hotelRoomRestAdapter.performOperation(roomNumber, operation);
     }
@@ -443,7 +443,7 @@ In this article, we've discussed some core principles of Hexagonal Architecture 
 
 We have discovered that, by sticking to these rules, we've ended up with a domain layer that is not polluted by any of its external dependencies.
 
-Furthermore, because of the high decoupling between the layers, we can write tests to validate **all** the business use-cases, and all this business logic should not be affected by any change in the external components.
+Furthermore, because of the high decoupling between the layers, we can write tests to validate all the business use-cases, and all this **business logic should not be affected by any change in the external components**.
 
 As always, the code for these examples is available [over on GitHub](https://github.com/etrandafir93/tutorials/tree/java/test-assignment/hexagonal-architecture).
 
