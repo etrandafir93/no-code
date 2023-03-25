@@ -1,3 +1,5 @@
+## Built-in Fakes vs Mocks
+
 
 We have client libraries for our service that are used both by our team (from different services) and by other teams. The idea was to create a built-in fake implementation of this library that can be imported with as `<scope>test</scope>` .
 
@@ -87,13 +89,13 @@ void accountNotFound() {
 
 Here are the main advantages I found for this approach:
 
-## 1. Decouple test from implementation
+### 1. Decouple test from implementation
 
 The method `AccounsService.getDisplayName` can change its implementation and start using `client.findByUsername(username)` instead of `client.findById(id)`: the test simply does not care.
 
 Similarly, in other scenarios we can have methods such as `save(Dto dto)`, `save(List<Dto> dtos)` - the test will not care which method you use, as long as the dtos are stored inside the fake. For instance, the test won't care if you save the dtos all the once or if you save them in batches.
 
-## 2. Add *Trivial* logic
+### 2. Add *Trivial* logic
 
 For example, this trivial argument validation:
 ```java
@@ -110,7 +112,7 @@ The main idea here is that these **very simple** validations or bits of logic ar
  PS: main challange here would be **not** to add to much logic in the fakes. They should be rather simple.
  
  
- ## 3. They can suggest the posibile outcomes and 'remind' you to test your error handling
+ ### 3. They can suggest the posibile outcomes and 'remind' you to test your error handling
  
  
 I would consider adding some test data there by default, for all the known outcomes of the API. The fake will look for these values first and it will reply a bit differently for them. It can be done in a nicer way, this is just to illustrate the point:
